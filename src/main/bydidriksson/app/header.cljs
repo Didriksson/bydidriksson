@@ -10,7 +10,7 @@
      {:class
       "flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0"
       :href "/"}
-     [:img  {:class "w-24 h-24 text-white p-2 rounded-full" :src "/logo.png"}]
+     [:img  {:class "w-24 h-24 text-white p-2 rounded-full" :src "logo.png"}]
      [:span {:class "ml-3 text-xl"} "by Didriksson"]]
     [:nav
      {:class
