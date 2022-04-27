@@ -22,14 +22,9 @@
     "shadow-cljs-server": "shadow-cljs server"
   },
   "devDependencies": {
-    "autoprefixer": "^10.4.4",
-    "cssnano": "^5.1.7",
-    "postcss": "^8.4.12",
-    "postcss-cli": "^9.1.0",
     "rimraf": "^3.0.2",
     "serve": "^11.3.2",
-    "shadow-cljs": "2.11.18",
-    "tailwindcss": "^3.0.24"
+    "shadow-cljs": "2.11.18"
   },
   "dependencies": {
     "react": "17.0.1",
