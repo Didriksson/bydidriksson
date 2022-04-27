@@ -1,0 +1,1 @@
+(ns clojure-rest-blog-consumer.app.state)
