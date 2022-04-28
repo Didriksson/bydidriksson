@@ -1,0 +1,1 @@
+{"version":3,"sources":["bydidriksson/app/state.cljs"],"mappings":";AAGA,AAAKA,AAAM,AAAA,AAAA,AAAA,AAAA,AAAA,AAACC","names":["bydidriksson.app.state/state","reagent.core.atom"],"sourcesContent":["(ns bydidriksson.app.state\r\n  (:require [reagent.core :as reagent :refer [atom]]))\r\n\r\n(def state (atom {:shop-items nil :cart []}))\r\n"]}

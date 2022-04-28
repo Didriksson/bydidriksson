@@ -1,7 +1,8 @@
 (ns bydidriksson.app.item
   (:require-macros [cljs.core.async.macros :refer [go]])
-  (:require [cljs-http.client :as http]
+  (:require [bydidriksson.app.config :as config]
             [bydidriksson.app.state :as state]
+            [cljs-http.client :as http]
             [clojure.core.async :refer [<!]]
             [clojure.string :as string]
             [reagent.core :as reagent :refer [atom]]))
@@ -23,13 +24,13 @@
 (defn item-page
   [parameters]
   (let [item (atom nil)]
-    (make-remote-call (str "http://localhost:3000/" (:id (:path parameters))) item)
+    (make-remote-call (str (:backend @config/configuration) "/" (:id (:path parameters))) item)
     (fn []
       (if (nil? @item) [loading-component]
           [:section {:class "text-gray-600 body-font overflow-hidden"}
            [:div {:class "container px-5 py-24 mx-auto"}
             [:div {:class "lg:w-4/5 mx-auto flex flex-wrap"}
-             [:img {:alt "ecommerce", :class "lg:w-1/2 w-full lg:h-auto h-64 object-cover object-center rounded", :src (str "http://localhost:3000/" (get @item :image))}]
+             [:img {:alt "ecommerce", :class "lg:w-1/2 w-full lg:h-auto h-64 object-cover object-center rounded", :src (str (:backend @config/configuration) "/" (get @item :image))}]
              [:div {:class "lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0"}
               [:h2 {:class "text-sm title-font text-gray-500 tracking-widest"} (-> (get @item :brand) (string/upper-case))]
               [:h1 {:class "text-gray-900 text-3xl title-font font-medium mb-1"} (get @item :name)]

@@ -1,15 +1,15 @@
 (ns bydidriksson.app.contact
   (:require-macros [cljs.core.async.macros :refer [go]])
-  (:require
-   [cljs-http.client :as http]
-   [clojure.core.async :refer [<!]]
-   [reagent.core :as reagent :refer [atom]]))
+  (:require [bydidriksson.app.config :as config]
+            [cljs-http.client :as http]
+            [clojure.core.async :refer [<!]]
+            [reagent.core :as reagent :refer [atom]]))
 
 
 
 
 (defn skicka [form]  
-  (go (let [response (<! (http/post "http://localhost:3000/contact" {:with-credentials? false :json-params form}))]
+  (go (let [response (<! (http/post (str (:backend @config/configuration) "/contact") {:with-credentials? false :json-params form}))]
         (println response))))
 
 (defn contact-page []

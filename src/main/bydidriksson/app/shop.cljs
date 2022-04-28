@@ -1,7 +1,8 @@
 (ns bydidriksson.app.shop
   (:require-macros [cljs.core.async.macros :refer [go]])
-  (:require [cljs-http.client :as http]
+  (:require [bydidriksson.app.config :as config]
             [bydidriksson.app.state :as state]
+            [cljs-http.client :as http]
             [clojure.core.async :refer [<!]]
             [clojure.string :as string]))
 
@@ -19,7 +20,7 @@
     [:img
      {:alt "ecommerce",
       :className "object-cover object-center w-full h-full block",
-      :src (str "http://localhost:3000/" (get item :image))}]]
+      :src (str (:backend @config/configuration) "/" (get item :image))}]]
    [:div {:className "mt-4"}
     [:h3
      {:className
@@ -33,7 +34,7 @@
 (defn render-items [shop-items]
   (if (nil? shop-items)
     (do
-      (make-remote-call "http://localhost:3000")
+      (make-remote-call (:backend @config/configuration))
       [:p "Loading items..."])
     (map render-item shop-items)))
 
