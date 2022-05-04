@@ -1,8 +1,8 @@
 (ns bydidriksson.app.core
-  (:require [bydidriksson.app.header :as header]
+  (:require [bydidriksson.app.footer :as footer]
+            [bydidriksson.app.header :as header]
             [bydidriksson.app.routes :as routes :refer [current-view]]
-            [reagent.dom :as rdom]
-            ))
+            [reagent.dom :as rdom]))
 
 (enable-console-print!)
 
@@ -12,7 +12,7 @@
    (when @current-view
      (let [view (:view (:data @current-view))]
        [view (:parameters @current-view)]))
-   ])
+   [footer/footer]])
 
 (defn render []
   (rdom/render [app] (.getElementById js/document "root")))

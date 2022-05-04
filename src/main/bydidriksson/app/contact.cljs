@@ -42,8 +42,4 @@
                   [:button {:class "flex mx-auto text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg"
                             :on-click #(do
                                          (skicka @emailform)
-                                         (reset! sent true))} "Skicka"])]
-               [:div {:class "p-2 w-full pt-8 mt-8 border-t border-gray-200 text-center"}
-                [:a {:class "text-indigo-500"} "mattias.didriksson@gmail.com"]
-                [:p {:class "leading-normal my-5"} "Gävle"
-                 [:br] "Sverige"]]]]]])))
+                                         (reset! sent true))} "Skicka"])]]]]])))

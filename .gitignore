@@ -7,9 +7,6 @@
 /.shadow-cljs
 report.html
 
-# generated js
-/public/js
-/out
 
 # misc
 .DS_Store
@@ -18,4 +15,5 @@ yarn-debug.log*
 yarn-error.log*
 /.clj-kondo
 /.lsp
+
 .history
